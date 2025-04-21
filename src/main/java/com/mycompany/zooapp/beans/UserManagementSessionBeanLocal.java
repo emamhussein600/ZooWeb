@@ -4,6 +4,7 @@
  */
 package com.mycompany.zooapp.beans;
 
+import com.mycompany.zooapp.entities.Role;
 import com.mycompany.zooapp.entities.User;
 import jakarta.ejb.Local;
 
@@ -13,5 +14,12 @@ import jakarta.ejb.Local;
  */
 @Local
 public interface UserManagementSessionBeanLocal {
-     User login(String userName, String Password);
+
+    User login(String userName, String Password);
+
+    boolean userExists(String username);
+
+    void registerUser(User user);
+
+    Role getDefaultRole();
 }

@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Register</title>
+    <style>
+        .center-box {
+            width: 400px;
+            margin: 100px auto;
+            padding: 20px;
+            border: 2px solid #333;
+            border-radius: 8px;
+            box-shadow: 2px 2px 12px #aaa;
+            background-color: #f9f9f9;
+        }
+
+        .form-grid {
+            width: 100%;
+        }
+
+        .form-grid td {
+            padding: 8px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .submit-button {
+            text-align: center;
+        }
+    </style>
+</h:head>
+
+<h:body>
+    <div class="center-box">
+        <h:form>
+            <h2>Register</h2>
+
+            <h:panelGrid columns="2" styleClass="form-grid">
+                <h:outputLabel value="Username:" />
+                <h:inputText value="#{userManagedBean.username}" required="true" />
+
+                <h:outputLabel value="Password:" />
+                <h:inputSecret value="#{userManagedBean.password}" required="true" />
+
+                <h:outputLabel value="Email:" />
+                <h:inputText value="#{userManagedBean.email}" required="true" />
+            </h:panelGrid>
+
+            <div class="submit-button">
+                <h:commandButton value="Register" action="#{userManagedBean.register}" />
+                <h:messages globalOnly="true" />
+            </div>
+        </h:form>
+    </div>
+</h:body>
+
+</html>

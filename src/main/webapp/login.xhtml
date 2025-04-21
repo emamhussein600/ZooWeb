@@ -7,16 +7,21 @@
     </h:head>
     <h:body style="display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f2f2f2;">
         <h:form style="background-color: #ffffff; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); width: 400px;">
-            
+
             <h:panelGrid columns="2" columnClasses="labelColumn,inputColumn" style="width: 100%;">
                 <h:outputLabel value="Username:" />
-                <h:inputText value="#{userManagedBean.username}" required="true" style="width: 100%;" />
+                <h:inputText value="#{userManagedBean.username}"  style="width: 100%;" />
 
                 <h:outputLabel value="Password:" />
-                <h:inputSecret value="#{userManagedBean.password}" required="true" style="width: 100%;" />
+                <h:inputSecret value="#{userManagedBean.password}"  style="width: 100%;" />
 
                 <h:outputLabel />
-                <h:commandButton value="Login" action="#{userManagedBean.login}" style="width: 100%;" />
+                <h:outputLabel />
+                <h:outputLabel />
+                <h:panelGroup layout="block" style="width: 100%; display: flex; justify-content: center; gap: 10px;">
+                    <h:commandButton value="Login" action="#{userManagedBean.login}" style="width: 100px;" />
+                    <h:commandButton value="SignIn" action="#{userManagedBean.reg}" style="width: 100px;" />
+                </h:panelGroup>
             </h:panelGrid>
         </h:form>
     </h:body>
