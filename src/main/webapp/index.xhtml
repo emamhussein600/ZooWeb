@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<h:head>
+    <title>Animal Page</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f0f0f0;
+        }
+
+        .card {
+            padding: 20px;
+            border: 1px solid #ccc;
+            width: 90%;
+            margin: auto;
+            margin-top: 30px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .create-button {
+            margin-bottom: 10px;
+        }
+    </style>
+</h:head>
+
+<h:body>
+    <f:view>
+        <div class="card">
+            <h:form id="animalForm">
+                <h1><h:outputText value="List" /></h1>
+
+                <h:commandButton value="➕ Create"
+                                 action="#{animalManagedBean.addpage}"
+                                 styleClass="create-button" />
+
+                <h:dataTable id="animals" value="#{animalManagedBean.animalList}" var="item"
+                             styleClass="animal-table">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="AnimalId" />
+                        </f:facet>
+                        <h:outputText value="#{item.animalId}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Type" />
+                        </f:facet>
+                        <h:outputText value="#{item.type}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="TotalNo" />
+                        </f:facet>
+                        <h:outputText value="#{item.totalNo}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Edit" />
+                        </f:facet>
+                        <h:commandButton value="Edit" action="#{animalManagedBean.loadAnimal(item)}" />
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Delete" />
+                        </f:facet>
+                        <h:commandButton value="Delete"
+                                         action="#{animalManagedBean.deleteAnimal(item)}">
+                            <f:ajax execute="@this" render="@form" />
+                        </h:commandButton>
+                    </h:column>
+                </h:dataTable>
+            </h:form>
+        </div>
+    </f:view>
+</h:body>
+
+</html>

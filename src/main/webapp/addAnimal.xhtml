@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="jakarta.faces.html">
+    <h:head>
+        <title>Create Animal</title>
+    </h:head>
+    <h:body>
+        <h1>Create New Animal</h1>
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="Animal Type:" />
+                <h:inputText value="#{animalManagedBean.animal.type}" />
+
+                <h:outputLabel value="Total Number:" />
+                <h:inputText value="#{animalManagedBean.animal.totalNo}" />
+
+                <h:outputLabel value="Category ID:" />
+                <h:inputText value="#{animalManagedBean.categoryId}" />
+
+                <h:outputLabel value="Cage ID:" />
+                <h:inputText value="#{animalManagedBean.cageId}" />
+            </h:panelGrid>
+            <h:commandButton value="Add Animal" action="#{animalManagedBean.addTestAnimal}" />
+        </h:form>
+    </h:body>
+</html>
